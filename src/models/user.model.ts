@@ -5,7 +5,7 @@ export interface Mitarbeiter {
   lastName: string;
   email: string;
   broughtByLvl1: mongoose.Types.ObjectId;
-  supervisor?: boolean;
+  supervisor?: mongoose.Types.ObjectId;
   lvl2?: number;
   lvl3?: number;
   superCommission: boolean;
@@ -24,7 +24,11 @@ export const MitarbeiterSchema = new mongoose.Schema(
       ref: 'Worker',
       default: null,
     },
-    supervisor: { type: Boolean, default: false },
+    supervisor: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Worker',
+      default: null,
+    },
     lvl2: { type: Number, default: 0 },
     lvl3: { type: Number, default: 0 },
     superCommission: { type: Boolean, default: false },

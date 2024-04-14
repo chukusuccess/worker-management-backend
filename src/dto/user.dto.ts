@@ -21,11 +21,11 @@ export class WorkerDto {
 
   @IsOptional()
   @IsString()
-  broughtByLvl1?: string; // Accepted as string, convert to ObjectId in service
+  broughtByLvl1?: string; // Accepted as string, convert to ObjectId in model
 
   @IsOptional()
-  @IsBoolean()
-  supervisor?: boolean;
+  @IsString()
+  supervisor?: string; // Accepted as string, convert to ObjectId in model
 
   @IsNotEmpty()
   @IsBoolean()
